@@ -13,13 +13,13 @@ export const addUser = ({ id, name, room }) => {
   );
 
   if (existingUser) {
+    console.log("같은 이름이 있습니다");
     return { error: "Username is taken" };
   }
 
   const user = { id, name, room };
 
   users.push(user);
-  console.log("username : " + user.name);
   return { user };
 };
 
@@ -28,14 +28,10 @@ export const removeUser = (id) => {
     user.id === id;
   });
 
-  if (index !== -1) {
-    return users.splice(index, 1)[0];
-  }
+  return users.splice(index);
 };
 
 export const getUser = (id) => {
-  console.log("id" + id);
-  console.log(users[0]);
   const filtereduser = users.filter((user) => {
     return user.id == id;
   });

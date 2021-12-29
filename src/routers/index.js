@@ -5,6 +5,6 @@ import devate from "./devate";
 const router = express.Router();
 
 router.use("/auth", auth);
-router.use("/devate", devate);
+router.use("/debate", devate);
 
 export default router;

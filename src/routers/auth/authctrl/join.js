@@ -3,7 +3,6 @@ import models from "../../../models";
 export const join = async (req, res) => {
   const { body } = req;
   if (!body.email || !body.name || !body.password || !body.password2) {
-    console.log(req.body);
     console.log("error : 입력되지 않은 항목이 있습니다");
     return res.status(401).json({
       error: "입력되지 않은 항목이 있습니다.",
@@ -41,6 +40,7 @@ export const join = async (req, res) => {
       status: 500,
       //alter table user drop column id;
       //alter table user add id int not null primary key auto_increment first;
+      //
     });
   }
 };

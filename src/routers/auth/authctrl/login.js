@@ -1,4 +1,5 @@
 import models from "../../../models";
+import jwt from "jsonwebtoken";
 
 export const login = async (req, res) => {
   const { body } = req;
@@ -9,16 +10,15 @@ export const login = async (req, res) => {
         status: 400,
       });
     }
-    const hashpw = bcrypt.hashSync(password, 10);
     const user = await models.User.findOne({
       where: {
-        emali: body.email,
-        password: hashpw,
+        email: body.email,
+        password: body.password,
       },
     });
     if (!user) {
       return res.status(401).json({
-        error: "Email이나 비밀번호를 입력해주세요",
+        error: "입력된 계정은 없는 계정입니다",
         status: 401,
       });
     }

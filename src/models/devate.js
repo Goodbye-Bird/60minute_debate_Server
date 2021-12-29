@@ -21,7 +21,7 @@ export default (sequelize, DataTypes) => {
       },
     },
     {
-      tableName: "User",
+      tableName: "Devate",
       timestamps: false,
     }
   );

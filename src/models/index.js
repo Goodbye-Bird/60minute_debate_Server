@@ -1,6 +1,7 @@
 import { DataTypes, Sequelize } from "sequelize";
 
 import Users from "./users";
+import devate from "./devate";
 
 const sequelize = new Sequelize("hackerton", "root", process.env.dbpw, {
   host: "localhost",
@@ -14,6 +15,7 @@ const sequelize = new Sequelize("hackerton", "root", process.env.dbpw, {
 
 export default {
   User: Users(sequelize, DataTypes),
+  Devate: devate(sequelize, DataTypes),
 };
 
 sequelize
