@@ -1,4 +1,4 @@
-import models from "../../../models";
+import models from "../../../models/index.js";
 
 export const join = async (req, res) => {
   const { body } = req;

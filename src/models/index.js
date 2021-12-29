@@ -1,7 +1,7 @@
 import { DataTypes, Sequelize } from "sequelize";
 
-import Users from "./users";
-import devate from "./devate";
+import Users from "./users.js";
+import devate from "./devate.js";
 
 const sequelize = new Sequelize("hackerton", "root", process.env.dbpw, {
   host: "localhost",

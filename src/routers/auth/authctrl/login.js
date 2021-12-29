@@ -1,4 +1,4 @@
-import models from "../../../models";
+import models from "../../../models/index.js";
 import jwt from "jsonwebtoken";
 
 export const login = async (req, res) => {

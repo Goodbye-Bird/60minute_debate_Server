@@ -1,6 +1,6 @@
 import express from "express";
-import auth from "./auth";
-import devate from "./devate";
+import auth from "./auth/index.js";
+import devate from "./devate/index.js";
 
 const router = express.Router();
 

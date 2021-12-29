@@ -1,6 +1,6 @@
 import express from "express";
 
-import notificate from "./devate.ctrl/notificate";
+import notificate from "./devate.ctrl/notificate.js";
 
 const router = express.Router();
 
