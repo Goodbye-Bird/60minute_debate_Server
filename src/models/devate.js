@@ -1,19 +1,21 @@
 export default (sequelize, DataTypes) => {
-  const User = sequelize.define(
-    "user",
+  const Devate = sequelize.define(
+    "devate",
     {
-      email: {
-        field: "email",
-        type: DataTypes.STRING,
+      id: {
+        field: "id",
+        type: DataTypes.INTEGER,
         allowNull: false,
-      },
-      password: {
-        field: "password",
-        type: DataTypes.STRING,
-        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true,
       },
       name: {
         field: "name",
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      room: {
+        field: "room",
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -23,5 +25,5 @@ export default (sequelize, DataTypes) => {
       timestamps: false,
     }
   );
-  return User;
+  return Devate;
 };

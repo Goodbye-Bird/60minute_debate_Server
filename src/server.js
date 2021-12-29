@@ -9,11 +9,15 @@ const app = express();
 const logger = morgan("dev");
 
 app.use(logger);
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(
+  cors({
+    origin: true,
+  })
+);
 
-app.use("/static", express.static("public"));
+app.use("/static", express.static("router"));
 app.use("/", routers);
 
 export default app;
