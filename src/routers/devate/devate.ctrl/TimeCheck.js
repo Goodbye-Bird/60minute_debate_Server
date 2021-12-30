@@ -4,12 +4,18 @@ export const timeCheck = async (req, res) => {
   const time = req.params.time;
   try {
     console.log(time);
-    const isvalid = true;
+    let isvalid = true;
     const times = await models.Devate.findOne({
-      time,
+      where: {
+        time,
+      },
     });
     if (times) {
       isvalid = false;
+      return res.status(400).json({
+        error: "사용할 수 없는 시간입니다",
+        status: 400,
+      });
     }
     return res.status(200).json({
       message: "사용할 수 있는 시간대입니다",

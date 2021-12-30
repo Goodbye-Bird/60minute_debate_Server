@@ -21,7 +21,7 @@ export default (sequelize, DataTypes) => {
       },
       time: {
         field: "time",
-        type: DataTypes.DATE,
+        type: DataTypes.INTEGER,
         allowNull: true,
       },
     },
