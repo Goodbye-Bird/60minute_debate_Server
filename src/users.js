@@ -1,3 +1,5 @@
+import models from "./models";
+
 const users = [];
 
 export const addUser = ({ id, name, room }) => {
@@ -16,8 +18,11 @@ export const addUser = ({ id, name, room }) => {
     console.log("같은 이름이 있습니다");
     return { error: "Username is taken" };
   }
-
   const user = { id, name, room };
+  models.Devate.create({
+    name,
+    room,
+  });
 
   users.push(user);
   return { user };

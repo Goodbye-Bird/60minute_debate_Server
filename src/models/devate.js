@@ -19,6 +19,11 @@ export default (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      time: {
+        field: "time",
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
     },
     {
       tableName: "Devate",

@@ -6,6 +6,7 @@ import cors from "cors";
 import socket from "socket.io";
 import http from "http";
 import { addUser, removeUser, getUser, getUsersInRoom } from "./users.js";
+import models from "./models/index.js";
 
 const app = express();
 const server = http.createServer(app);
@@ -13,7 +14,7 @@ const io = socket(server);
 
 // 3. 소켓 연결 및 이벤트
 io.on("connection", (socket) => {
-  console.log("소켓 연결 완료");
+  console.log("✅ 소켓 연결 완료");
   // 클라이언트에서 join이벤트를 보냈을 경우에 대해서 처리`on`
   socket.on("join", ({ name, room }, callback) => {
     const { error, user } = addUser({ id: socket.id, name, room });
@@ -52,7 +53,7 @@ io.on("connection", (socket) => {
     if (!user) {
       return;
     }
-    console.log("username   " + user.name + "message   " + message);
+    console.log("username : " + user.name + "   message : " + message);
     // consol e.log(user); //
     // 해당 방으로 메세지를
     io.to(user.room).emit("message", { user: user.name, text: message });

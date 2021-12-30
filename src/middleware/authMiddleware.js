@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 
 export const verifyToken = (req, res, next) => {
-  const token = req.headers.authorization.split(" ")[1];
+  const token = req.headers.token;
   console.log(token);
   console.log(req.headers);
   try {
@@ -20,4 +20,8 @@ export const verifyToken = (req, res, next) => {
       message: "유효하지 않은 토큰입니다.",
     });
   }
+};
+
+export const checkToken = async (token) => {
+  return jwt.verify(token, process.env.JWT_SECRET);
 };
